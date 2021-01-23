@@ -19,14 +19,10 @@ colorama==0.4.3
 Creoleparser==0.7.5
 crypto==1.4.1
 cryptography==3.2.1
-cupshelpers==1.0
-dbus-python==1.2.16
 defer==1.0.6
 defusedxml==0.6.0
 distlib==0.3.1
 distro==1.5.0
-distro-info===0.23ubuntu1
-Django==3.1.4
 dnspython==2.1.0
 dominate==2.3.1
 elasticsearch==7.5.1
