@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>#eutbposso</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+   {% include '/module/navbar.html'%}
+	  {% include "/module/flash.html" %} 
+	  
+    <div style="background-color:#ffd300" class="hero-head">
+      <header>
+	<div class="container">
+	  <div style="background-color:#ffd300"  class="section">
+	    <div   class="has-text-centered">
+	      <h1 class="title is-1 is-spaced">#EUTBPOSSO</h1>
+	      <h4 class="subtitle is-4"><i>"Porque o arrependimento, como o desejo, não procura analisar-se, mas sim satisfazer-se."</i>
+            </h4> 
+            <h3><i><strong>Marcel Proust</strong><i></h3>
+	    </div>
+	  </div>
+	  <div style="background-color:#ffd300; color:#791ad8;" class="section">
+            <div style="background-color:#ffd300; color:#791ad8;" class="tabs is-centered">
+	      <ul>
+		<li><a style="background-color:#ffd300; color:#791ad8;" href="/">O Manifesto</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+      </header>
+    </div>
+    
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+   
+      <div class="container ">
+	<div class="columns is-multiline is-mobile is-centered">
+	  <div class="column is-8 is-centered">
+	    
+	    <div class="header-content">
+	      <div class="has-text-centered">
+		<h1 class="title">
+		  Entre em contato!
+		</h1>
+	      </div>
+	    </div>
+	    
+	    <div class="subheader-content has-text-centered">
+	      <div class="nav-center">
+		<a class="nav-item">
+		  <span class="icon">
+		    <i class="fa fa-facebook"></i>
+		  </span>
+		</a>
+		<a class="nav-item">
+		  <span class="icon">
+		    <i class="fa fa-twitter"></i>
+		  </span>
+		</a>
+		<a class="nav-item">
+		  <span class="icon">
+		    <i class="fa fa-instagram"></i>
+		  </span>
+		</a>
+		<a class="nav-item">
+		  <span class="icon">
+		    <i class="fa fa-rss"></i>
+		  </span>
+		</a>
+	      </div>
+	      <hr/>
+	    </div>
+	    
+	    
+	    <div class="single-content">
+	      <!-- form begin -->
+	      <form>
+		<div class="field">
+		  <label class="label">Nome</label>
+		  <p class="control">
+		    <input class="input" type="text" placeholder="Seu nome">
+		  </p>
+		</div>
+
+		<div class="field">
+		  <label class="label">Email</label>
+		  <p class="control">
+		    <input class="input" type="text" placeholder="Email" value="">
+		  </p>
+		</div>
+
+		<div class="field">
+		  <label class="label">Mensagem</label>
+		  <p class="control">
+		    <textarea class="textarea" placeholder="Deixe aqui sua sugestão, elogio, critícas, toda a opinião para nós é válida!"></textarea>
+		  </p>
+		</div>
+
+		<div class="field is-grouped">
+		  <p class="control">
+		    <button style="background-color:#791ad8; color: white"class="button">Enviar</button>
+		  </p>
+		  
+		</div>
+	      </form>
+	      <!-- form end -->
+	    </div>
+	    <div class="has-text-right">
+	      <p><a class="button" href="/">Voltar para o início</a></p>
+	    </div>
+	  </div>
+	  <!--  end of post -->
+	  
+	</div>
+      </div>
+    </div>
+
+    <!-- Hero footer: will stick at the bottom -->
+    
+    {% include "/module/footer.html"%}
+    </div>
+  </body>
+</html>

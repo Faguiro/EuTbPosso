@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% include "/module/navbar.html" %}
+{% include "/module/flash.html" %} 
+{% block app_content %}
+
+
+<style>
+    .profile-head {
+    transform: translateY(5rem)
+}
+p {
+  max-width: 600ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cover {
+    background-image: url(https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+body {
+    background: #654ea3;
+    background: linear-gradient(to right, #ffd300, #791ad8);
+    min-height: 100vh
+}
+</style>
+
+<div class="row py-5 px-4">
+    <div class="col-md-5 mx-auto">
+        <!-- Profile widget -->
+        <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 cover">
+                <div class="media align-items-end profile-head">
+                    <div class="profile mr-3"><img src="{{ user.avatar }}"alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="{{ url_for('main.edit_profile') }}" class="btn btn-outline-dark btn-sm btn-block">Editar Perfil</a></div>
+                    <div style="padding-bottom: 10%" class="media-body mb-5 text-white">
+                       
+                        <h4  >{{ _('User') }}: {{ user.username }}</h4>
+                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>{{ _('Ultima visita') }}: {{ moment(user.last_seen).format('LLL') }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-5 d-flex justify-content-end text-center">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">0</h5><small class="text-muted"> <i class="fas fa-image mr-1">Postagens</i></small>
+                    </li>
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">{{ _('%(count)d ', count=user.followers.count()) }}</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Seguidores</small>
+                    </li>
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">{{ _('%(count)d ', count=user.followed.count()) }}</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Seguindo</small>
+                    </li>
+                </ul>
+            </div>
+            <div class="px-4 py-3">
+                <h5 class="mb-0">Sobre mim:</h5>
+                <div class="p-4 rounded shadow-sm bg-light">
+                    <p class="font-italic mb-0">{% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}</p>
+                   
+                </div>
+            </div>
+            <div class="py-4 px-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="mb-0">Postagens recentes</h5><a href="#" class="btn btn-link text-muted">Mostrat tudo</a>
+                </div>
+                
+                
+                <div  class="row">
+                    {% for post in posts %}    
+    
+                    <div  class="col-lg-6 mb-2 pr-lg-1"><p>{% include '_post.html' %}</p></div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% include 'module/footer_twitter.html'%}
+
+</div>
+
+{% endblock %}
+
+
+

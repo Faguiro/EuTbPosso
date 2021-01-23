@@ -1,0 +1,68 @@
+{% extends 'bootstrap/base.html' %}
+
+
+
+
+{% block head %}
+
+
+
+<meta charset="UTF-8">
+<meta name="#eutbposso" content="#eutbposso">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:widgets:new-embed-design" content="on">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'css/style.css')}}">
+<script href="{{url_for('static', filename= 'js/script.js')}}"></script>
+
+{% endblock %}
+
+
+{% block navbar %} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+    </div>
+{% endblock %}
+
+
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+    <script>
+        function translate(sourceElem, destElem, sourceLang, destLang) {
+            $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
+            $.post('/translate', {
+                text: $(sourceElem).text(),
+                source_language: sourceLang,
+                dest_language: destLang
+            }).done(function(response) {
+                $(destElem).text(response['text'])
+            }).fail(function() {
+                $(destElem).text("{{ _('Error: Could not contact server.') }}");
+            });
+        }
+    </script>
+{% endblock %}

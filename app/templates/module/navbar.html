@@ -1,0 +1,99 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:widgets:new-embed-design" content="on">
+  
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Afinal? Quem pode?</title>
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma-divider.min.css') }}">
+
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<!-- START NAV -->  
+  
+  <nav id="navMenu" class="navbar navbar.is-success " role="navigation" aria-label="main navigation" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+     <a class="navbar-item" href="/">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" width="130px" height="auto">
+    </a>
+  <div class="navbar-brand">
+   
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    
+    <div class="navbar-start">
+       <a style="background-color: #791ad8; color: white "  href='/#manifesto' type="button" class="navbar-item" >O Manifesto</a>
+
+        <div class="navbar-start">
+          <a style="color: #791ad8;" href="https://twitter.com/quem_pode/" class="navbar-item">
+           Twitter
+          </a>
+         
+          <a href="{{url_for('main.contato')}}" style="color: #791ad8;" class="navbar-item">
+            Contato
+          </a>
+          <hr class="navbar-divider">
+          
+        </div>
+      
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        
+       
+        <div class="buttons">
+           {% if current_user.is_anonymous %}
+          <h3 style="padding-right: 10px; font-family: 'Brush Script MT', cursive;" > {{ _('Olá, Visitante!  !') }}</h3>
+          
+          <a href="{{ url_for('auth.register') }}" style="background-color: #ffd300; color:#791ad8" href="" class="button is-primary">
+            <strong>Cadastre-se!</strong>
+          </a>
+          <a href="{{url_for('auth.register')}}"  style="background-color: #791ad8; color:white"  class="button is-light">
+            Entrar
+          </a>
+           {% else %}
+          <h3 style="padding-right: 10px; font-family: 'Brush Script MT', cursive;" > {{ _('Olá, %(username)s!', username=current_user.username) }}</h3>
+           <a href="{{ url_for('main.user2', username=current_user.username) }}" style="background-color: #ffd300"  class="button is-primary">
+            <strong>Meu perfil</strong>
+          </a>
+          <a style="background-color:  #791ad8" href="{{ url_for('auth.logout') }}"class="button is-primary">
+            <strong>Sair</strong>
+          </a>
+          
+          {% endif %}
+        </div>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</nav>
+  
+  
+  
+  
+  <!-- END NAV -->
