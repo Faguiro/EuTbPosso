@@ -8,9 +8,6 @@ attrs==20.2.0
 autopep8==1.5.4
 Babel==2.5.1
 bcrypt==3.2.0
-beautifulsoup4==4.9.3
-black==20.8b1
-blender==1.4
 blinker==1.4
 botocore==1.19.35
 certifi==2017.7.27.1
@@ -19,7 +16,6 @@ chalice==1.21.6
 chardet==3.0.4
 click==6.7
 colorama==0.4.3
-command-not-found==0.3
 Creoleparser==0.7.5
 crypto==1.4.1
 cryptography==3.2.1
