@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>{{ _('Oi, %(username)s! Seja bem Vindo!', username=current_user.username) }}</h1>
+    
+  
+    {% include "module/carrossel.html" %}  
+    
+    
+{% endblock %}
+ 

@@ -1,0 +1,119 @@
+
+{% extends "base.html" %}
+
+
+<head>
+  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+  <meta name="twitter:widgets:new-embed-design" content="on">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Afinal? Quem pode?</title>
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma-divider.min.css') }}">
+    <meta name="#eutbposso" content="#eutbposso">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    <link rel="stylesheet" href="../static/css/style.css">
+  
+  
+  
+  
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  
+  </style>
+</head>
+
+{% block body %}
+{% include "/module/navbar.html" %}
+{% include "/module/flash.html" %} 
+<title>Login#eutbposso</title>
+<section style="background-image: url({{ url_for('static', filename='images/fundo1.png') }}); background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative; padding: 1%;"  >
+  
+<!-- Chamada -->
+<div style="text-align:center;">    
+    <p style="color:black" class="subtitle is-1"><i>Você tambem pode!</i></p>
+          <p class="subtitle is-5"></p>
+          <p class="subtitle is-4">Faça seu cadastro, ou use sua rede social favorita, é rapidinho!</p><br>
+  </div>
+<!--  -->
+  
+<!--  Campos de login-->
+  <div  class='container-fluid'>
+  <div  class="columns  is-vcentered ">
+    
+    
+    
+   {% block app_content %}
+    
+  
+   {% include '/module/entrar_form.html'%}
+    {% include '/module/form_login.html'%}
+     
+   
+<!--              -->  
+ 
+  
+</div>
+  
+  </div>
+   
+
+
+ {% endblock %}
+  
+
+</section>
+
+
+{% include "/module/footer.html" %}
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></scr></script>
+   
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

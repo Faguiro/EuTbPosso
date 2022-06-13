@@ -1,0 +1,32 @@
+
+{% block body %}
+
+<!-- START NAV -->  
+{% include "/module/navbar.html" %} 
+
+{% include "/module/flash.html" %} 
+
+<!--    Carrossel-->    
+{% include "/module/carrossel.html" %}
+
+<!-- Hero del producto -->
+{% include "/module/hero.html" %}
+
+{#% include "/module/navbar_login.html" %#}
+
+<!--secção  start  colapse 1 -->               
+{% include "/module/manifesto.html" %}
+
+<!-- newsletter -->                        
+{% include "/module/newsletter.html" %} 
+
+<!--  FOOTER -->
+
+{% include "/module/footer_twitter.html" %} 
+
+<!--      END  FOOTER           -->
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+{% endblock %}
